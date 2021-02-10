@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>STR-PSW-GENERATOR</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="container h-100">
+    <div class="container-lg">
         <!-- Nav bar -->
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #c4c4c4;">
+        <nav class="navbar navbar-expand-lg navbar-light shadow rounded mb-lg-5 mb-sm-3 mb-3" style="background-color: #c4c4c4;">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">STR-PSW-GENERATOR</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +28,181 @@
         </nav>
 
         <!-- Customizacion cadena -->
-    </div>
+        <div class="container row">
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="letras-custom">
+                <p class="mt-2">Letras:</p>
+                <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example">
+                    <option selected>Seleccione...</option>
+                    <option value="solo-min">Solo minusculas</option>
+                    <option value="solo-may">Solo mayusculas</option>
+                    <option value="ambas">Ambas</option>
+                    <option value="sin-letras">Sin letras</option>
+                </select>
+            </div>
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="nums-custom">
+                <p class="mt-2">Números:</p>
+                <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example">
+                    <option selected>Seleccione...</option>
+                    <option value="con-num">Con números</option>
+                    <option value="sin-num">Sin números</option>
+                </select>
+            </div>
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="char-custom">
+                <p class="mt-2">Carácteres especiales:</p>
+                <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example" id="options-char-esp">
+                    <option selected>Seleccione...</option>
+                    <option value="con-car-esp">Con caracteres especiales</option>
+                    <option value="sin-car-esp">Sin caracteres especiales</option>
+                    <option value="custom-car-esp">Caracteres especificos</option>
+                </select>
+                <div class="collapse" id="collapseCharEspecifico">
+                    <div class="input-group input-group-sm mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Especifar:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <!-- test -->
+        <!-- 
+
+         
+        <div class="container row">
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2" id="letras-custom">
+                <p class="mt-2 mb-1">Letras:</p>
+                <div class="mb-3 px-3 fs-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="letras" id="letras1">
+                        <label class="form-check-label" for="letras1">
+                            Solo minusculas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="letras" id="letras2">
+                        <label class="form-check-label" for="letras2">
+                            Solo mayusculas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="letras" id="letras3" checked>
+                        <label class="form-check-label" for="letras3">
+                            Ambas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="letras" id="letras4">
+                        <label class="form-check-label" for="letras4">
+                            Sin letras
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2" id="nums-custom">
+                <p class="mt-2 mb-1">Números:</p>
+                <div class="mb-3 px-3 fs-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="numeros" id="numeros1" checked>
+                        <label class="form-check-label" for="numeros1">
+                            Con números
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="numeros" id="numeros2">
+                        <label class="form-check-label" for="numeros2">
+                            Sin números
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2" id="char-custom">
+                <p class="mt-2 mb-1">Carácteres especiales:</p>
+                <div class="mb-3 px-3 fs-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="chars" id="chars1" checked>
+                        <label class="form-check-label" for="chars1">
+                            Con carac. especiales
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="chars" id="chars2">
+                        <label class="form-check-label" for="chars2">
+                            Sin carac. especiales
+                        </label>
+                    </div>
+                    
+                    
+                    <div class="form-check" href="#collapseCharEspecifico" data-bs-toggle="collapse">
+                        <input class="form-check-input" type="radio" name="chars" id="chars3">
+                        <label class="form-check-label" for="chars3">
+                            Carac. especifico
+                        </label>
+                    </div>
+                    <div class="collapse" id="collapseCharEspecifico">
+                        <div class="input-group input-group-sm mb-3 mt-2">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Especifar:</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- Patron row -->
+        <div class="container row">
+            <!-- Seleccion tipo patron -->
+            <div class="container col-sm-12 col-lg-2 bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2 shadow" id="patron-selec">
+                <p class="mt-2 mb-1">Patrón:</p>
+                <div class="mb-3 px-2 fs-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="patron" id="patron1" checked>
+                        <label class="form-check-label" for="patron1">
+                            Aleatorio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="patron" id="patron2">
+                        <label class="form-check-label" for="patron2">
+                            Especifico
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Ingreso y hints patron -->
+            <div class="container col-sm-12 col-lg-10 bg-secondary text-white rounded m-0 p-0 mb-lg-5 mb-sm-1 fs-5 border border-2 border-end-0 shadow row " id="patron-espec">
+                <div class="container col-sm-12 col-lg-6 ">
+                    <p class="ps-2 my-2">Especificar patrón:</p>
+                    <div class="input-group input-group-sm px-2">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="AA11aaaa+AA">
+                    </div>
+                    <button type="button" class="btn btn-dark my-3 ms-2">Generar cadena</button>
+                </div>
+                <div class="container col-sm-12 col-lg-6 row m-0 fs-6" >
+                    <div class="col-12 mt-2 border rounded bg-danger align-middle">
+                        <p class="align-middle p-1 m-0">* Escriba una ’A’ o ‘a’ para letra mayuscula o minuscula.</p>
+                    </div>
+                    <div class="col-12 mt-2 border rounded bg-secondary">
+                        <p class="m-0 p-1">* Escriba un ‘1’ para números.</p>
+                    </div>
+                    <div class="col-12 mt-2 mb-2 border rounded bg-danger">
+                        <p class="m-0 p-1">* Escriba un ‘+’ para caracteres especiales o su caracter especifico.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 
+
+                
+                <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2 border-end-0 shadow" id="input-espec-patron">
+                    
+                </div>
+                <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-5 mb-sm-1 fs-5 border border-2 border-start-0" id="patron-hints">
+                </div>
+            </div>
+        -->
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 </html>
