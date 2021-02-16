@@ -23,4 +23,29 @@ function mostrarInputCharEspecifico(){
     }
 }
 
-mostrarInputCharEspecifico();
+// mostrarInputCharEspecifico();
+
+function activarCollapsePatron(){
+    let checkbox = document.querySelector('#pat-charesp-check');
+    let input = document.querySelector('#pat-charesp-input');
+    let isChecked;
+    checkbox.addEventListener('change',() => {
+        checkbox.toggleAttribute('checked');
+        isChecked = checkbox.hasAttribute('checked');
+        if (isChecked){
+            console.log('checkeado');
+            // input.classList.remove('collapse','show','collapsing');
+            input.classList.add('show');
+        }
+        else if (isChecked === false){
+            input.classList.remove('collapse','show');
+            input.classList.add('collapsing');
+            setTimeout(()=>{
+                input.classList.add('collapse');
+                input.classList.remove('collapsing');
+            },300);
+        }
+    });
+}
+
+activarCollapsePatron();
