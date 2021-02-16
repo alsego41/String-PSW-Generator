@@ -1,51 +1,34 @@
-function mostrarInputCharEspecifico(){
-    let seleccion = document.querySelectorAll('#options-char-esp option');
-    let seleccionA = document.querySelector('#options-char-esp');
-    let input = document.querySelector('#collapseCharEspecifico');
-    seleccionA.addEventListener('click',manejarInput,false);
-
-    function manejarInput(){
-        if (seleccionA.value === 'custom-car-esp' && input.classList.contains('show') === false){
-            if (input.classList.contains('show') === false){
-                input.classList.add('show');
-            }
-            else if (input.classList.contains('show') === true){
-                input.classList.remove('show','collapse');
-                input.classList.add('collapsing');
-                setTimeout(() => {
+function activarCollapseCharEspOpciones(){
+    let select = document.querySelector('#options-charesp');
+    let input = document.querySelector('#opc-charesp-input');
+    let isChecked;
+    select.addEventListener('change',() => {
+        if (select.value === 'custom-car-esp'){
+            select.setAttribute('data-bs-toggle','collapse');
+            select.setAttribute('data-bs-target','#opc-charesp-input');
+            setTimeout(()=>{
+                select.removeAttribute('data-bs-toggle','collapse');
+                select.removeAttribute('data-bs-target','#opc-charesp-input');
+            },0);
+        } else {
+            if (input.classList.contains('show')){
+                select.setAttribute('data-bs-toggle','collapse');
+                select.setAttribute('data-bs-target','#opc-charesp-input');
+                setTimeout(()=>{
+                    input.classList.remove('show');
+                    input.classList.remove('collapse');
+                    input.classList.add('collapsing');
+                },200);
+                setTimeout(()=>{
+                    input.classList.remove('show');
                     input.classList.remove('collapsing');
                     input.classList.add('collapse');
-                },500);
+                    select.removeAttribute('data-bs-toggle','collapse');
+                    select.removeAttribute('data-bs-target','#opc-charesp-input');
+                },300);
             }
-        } else {
-            return;
-        }
-    }
-}
-
-// mostrarInputCharEspecifico();
-
-function activarCollapsePatron(){
-    let checkbox = document.querySelector('#pat-charesp-check');
-    let input = document.querySelector('#pat-charesp-input');
-    let isChecked;
-    checkbox.addEventListener('change',() => {
-        checkbox.toggleAttribute('checked');
-        isChecked = checkbox.hasAttribute('checked');
-        if (isChecked){
-            console.log('checkeado');
-            // input.classList.remove('collapse','show','collapsing');
-            input.classList.add('show');
-        }
-        else if (isChecked === false){
-            input.classList.remove('collapse','show');
-            input.classList.add('collapsing');
-            setTimeout(()=>{
-                input.classList.add('collapse');
-                input.classList.remove('collapsing');
-            },300);
         }
     });
 }
 
-activarCollapsePatron();
+activarCollapseCharEspOpciones();

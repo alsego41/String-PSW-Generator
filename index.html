@@ -53,24 +53,28 @@
             <!-- Opciones select -->
             <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="patron-selec">
                 <div class="mb-3 px-2 fs-6">
+                    <!-- long -->
                     <div class="container input-group input-group-sm mt-2 mx-0 row p-0 mb-2">
                         <p class="m-0 p-0 col-12 mb-1">Longitud de la cadena</p>
                         <input type="text" class="form-control rounded col-12 mx-0" value="10">
                     </div>
+                    <!-- letras -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="letras-check">
+                        <input class="form-check-input" type="checkbox" value="" id="letras-check" checked>
                         <label class="form-check-label" for="letras-check">
                             Letras
                         </label>
                     </div>
+                    <!-- num -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="num-check" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="num-check">
                         <label class="form-check-label" for="num-check">
                             Numeros
                         </label>
                     </div>
+                    <!-- chars -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="charesp-check" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="charesp-check">
                         <label class="form-check-label" for="charesp-check">
                             Carac. especiales
                         </label>
@@ -95,7 +99,7 @@
                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="AA11aaaa+AA">
                     </div>
                     <div class="form-check ms-2 mt-3 fs-6">
-                        <input class="form-check-input" type="checkbox" value="" id="pat-charesp-check" data-bs-toggle="collapse" data-bs-target="#pat-charesp-input">
+                        <input class="form-check-input collapsed" type="checkbox" value="" id="pat-charesp-check" data-bs-toggle="collapse" data-bs-target="#pat-charesp-input">
                         <label class="form-check-label" for="pat-charesp-check">
                             Carac. especiales
                         </label>
@@ -127,10 +131,9 @@
             <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="letras-custom">
                 <p class="mt-2">Letras:</p>
                 <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example">
-                    <option selected>Seleccione...</option>
+                    <option value="ambas" selected>Mayusculas y minusculas</option>
                     <option value="solo-min">Solo minusculas</option>
                     <option value="solo-may">Solo mayusculas</option>
-                    <option value="ambas">Todas</option>
                 </select>
             </div>
             <!-- Numeros -->
@@ -148,13 +151,12 @@
             <!-- Carac. esp. -->
             <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="char-custom">
                 <p class="mt-2">Carácteres especiales:</p>
-                <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example" id="options-char-esp">
-                    <option selected>Seleccione...</option>
-                    <option value="all-car-esp">Todos los caracteres especiales</option>
+                <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example" id="options-charesp">
+                    <option value="all-car-esp" selected>Todos los caracteres especiales</option>
                     <option value="some-car-esp">Solo - + / * .</option>
                     <option value="custom-car-esp">Caracteres especificos</option>
                 </select>
-                <div class="collapse" id="collapseCharEspecifico">
+                <div class="collapse" id="opc-charesp-input">
                     <div class="input-group input-group-sm mb-3 mt-2">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Especificar:</span>
                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
