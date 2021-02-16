@@ -32,3 +32,39 @@ function activarCollapseCharEspOpciones(){
 }
 
 activarCollapseCharEspOpciones();
+
+function activarCustomization(){
+    let letrasOpc = document.querySelector('#letras-check');
+    let letrasConf = document.querySelector('#letras-custom');
+    let espCharOpc = document.querySelector('#charesp-check');
+    let espCharConf = document.querySelector('#char-custom');
+
+    letrasOpc.addEventListener('change',() => {
+        letrasConf.classList.toggle('visually-hidden');
+        manejarVisibilidadConfigs(letrasConf,espCharConf);
+    });
+
+    espCharOpc.addEventListener('change',() => {
+        espCharConf.classList.toggle('visually-hidden');
+        manejarVisibilidadConfigs(espCharConf,letrasConf);
+    });
+}
+
+function manejarVisibilidadConfigs(objetoActual,objetoYaActivo){
+    let row = document.querySelector('#custom-row');
+    let configsInactivos = row.querySelectorAll('.visually-hidden').length;
+    if (configsInactivos === 1){
+        objetoActual.classList.remove('col-lg-6');
+        objetoActual.classList.add('col-lg-12');
+        objetoYaActivo.classList.remove('col-lg-6');
+        objetoYaActivo.classList.add('col-lg-12');
+    }
+    else if (configsInactivos === 0){
+        objetoActual.classList.add('col-lg-6');
+        objetoActual.classList.remove('col-lg-12');
+        objetoYaActivo.classList.add('col-lg-6');
+        objetoYaActivo.classList.remove('col-lg-12');
+    }
+}
+
+activarCustomization();

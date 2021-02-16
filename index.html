@@ -51,7 +51,7 @@
                 </div>
             </div>
             <!-- Opciones select -->
-            <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="patron-selec">
+            <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="opc-selec">
                 <div class="mb-3 px-2 fs-6">
                     <!-- long -->
                     <div class="container input-group input-group-sm mt-2 mx-0 row p-0 mb-2">
@@ -60,7 +60,7 @@
                     </div>
                     <!-- letras -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="letras-check" checked>
+                        <input class="form-check-input" type="checkbox" value="" id="letras-check">
                         <label class="form-check-label" for="letras-check">
                             Letras
                         </label>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <!-- Generar cadena btn div -->
-            <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="patron-selec">
+            <div class="container col-sm-12 col-lg-5 bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="gen-cadena-top-hint">
                 <div class="mb-3 px-2 fs-6">
                     <div class="col-12 mt-3 border rounded bg-danger align-middle">
                         <p class="align-middle p-1 ps-2 m-0">* Para ser más especifico, configure las opciones debajo.</p>
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <!-- Ingreso y hints patron -->
-            <div class="container col-sm-12 col-lg-12 bg-secondary text-white rounded m-0 p-0 mb-lg-3 mb-sm-1 fs-5 border border-2 border-end-0 shadow row pb-sm-2" id="patron-espec">
+            <div class="container col-sm-12 col-lg-12 bg-secondary text-white rounded m-0 p-0 mb-lg-3 mb-sm-1 fs-5 border border-2 border-end-0 shadow row pb-sm-2 visually-hidden" id="patron-espec">
                 <!-- Ingreso -->
                 <div class="container col-sm-12 col-lg-6 ">
                     <p class="ps-2 my-2">Especificar patrón:</p>
@@ -126,9 +126,9 @@
         </div>
 
         <!-- Customizacion cadena / Reorganizado 2-->
-        <div class="container row">
+        <div class="container row" id="custom-row">
             <!-- Letras -->
-            <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="letras-custom">
+            <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow visually-hidden" id="letras-custom">
                 <p class="mt-2">Letras:</p>
                 <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example">
                     <option value="ambas" selected>Mayusculas y minusculas</option>
@@ -149,7 +149,7 @@
                 </div>
             -->
             <!-- Carac. esp. -->
-            <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="char-custom">
+            <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow visually-hidden" id="char-custom">
                 <p class="mt-2">Carácteres especiales:</p>
                 <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example" id="options-charesp">
                     <option value="all-car-esp" selected>Todos los caracteres especiales</option>
@@ -166,7 +166,7 @@
         </div>
 
         <!-- Resultados row -->
-        <div class="container row">
+        <div class="container row visually-hidden">
             <div class="container bg-secondary text-white rounded border border-2 shadow">
                 <p class="mt-2 ms-3 fs-4">Cadena generada:</p>
                 <div class="container px-3 mb-3">
