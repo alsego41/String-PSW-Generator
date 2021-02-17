@@ -32,3 +32,92 @@ function activarCollapseCharEspOpciones(){
 }
 
 activarCollapseCharEspOpciones();
+
+function activarCustomization(){
+    let letrasOpc = document.querySelector('#letras-check');
+    let letrasConf = document.querySelector('#letras-custom');
+    let espCharOpc = document.querySelector('#charesp-check');
+    let espCharConf = document.querySelector('#char-custom');
+
+    letrasOpc.addEventListener('change',() => {
+        letrasConf.classList.toggle('visually-hidden');
+        manejarVisibilidadConfigs(letrasConf,espCharConf);
+    });
+
+    espCharOpc.addEventListener('change',() => {
+        espCharConf.classList.toggle('visually-hidden');
+        manejarVisibilidadConfigs(espCharConf,letrasConf);
+    });
+}
+
+function manejarVisibilidadConfigs(objetoActual,objetoYaActivo){
+    let row = document.querySelector('#custom-row');
+    let configsInactivos = row.querySelectorAll('.visually-hidden').length;
+    if (configsInactivos === 1){
+        objetoActual.classList.remove('col-lg-6');
+        objetoActual.classList.add('col-lg-12');
+        objetoYaActivo.classList.remove('col-lg-6');
+        objetoYaActivo.classList.add('col-lg-12');
+    }
+    else if (configsInactivos === 0){
+        objetoActual.classList.add('col-lg-6');
+        objetoActual.classList.remove('col-lg-12');
+        objetoYaActivo.classList.add('col-lg-6');
+        objetoYaActivo.classList.remove('col-lg-12');
+    }
+}
+
+activarCustomization();
+
+function seleccionTipoPatron(){
+    let radio = document.querySelectorAll('input[name="patron"]');
+    
+    radio.forEach((tipo) => {
+        tipo.addEventListener('change', () => {
+            let tipoSeleccionado = document.querySelector('input[name="patron"]:checked');
+            let id = tipoSeleccionado.getAttribute('id');
+            cambioDePatron(id);
+        });
+    });
+}
+seleccionTipoPatron()
+
+function cambioDePatron(id){
+    let secEspPat = document.querySelector('#patron-espec');
+    let resultados = document.querySelector('#result-row');
+
+    let opciones = document.querySelector('#opc-selec');
+    let genCadena = document.querySelector('#gen-cadena-top-hint');
+    let custom = document.querySelector('#custom-row');
+    if (id === 'pat-aleatorio'){
+        secEspPat.classList.add('visually-hidden');
+        resultados.classList.add('visually-hidden');
+        opciones.classList.remove('visually-hidden');
+        genCadena.classList.remove('visually-hidden');
+        custom.classList.remove('visually-hidden');
+    }
+    else if (id === 'pat-especifico'){
+        secEspPat.classList.remove('visually-hidden');
+        resultados.classList.add('visually-hidden');
+        opciones.classList.add('visually-hidden');
+        genCadena.classList.add('visually-hidden');
+        custom.classList.add('visually-hidden');
+    }
+}
+
+function mostrarResultados(){
+    let botonAleatorio = document.querySelector('#boton-aleatorio');
+    let botonEspecifico = document.querySelector('#boton-especifico');
+    let resultDiv = document.querySelector('#result-row');
+    let inputResult = resultDiv.querySelector('#input-result');
+
+    botonAleatorio.addEventListener('click', () => {
+        resultDiv.classList.remove('visually-hidden');
+        inputResult.value = '';
+    });
+    botonEspecifico.addEventListener('click', () => {
+        resultDiv.classList.remove('visually-hidden');
+        inputResult.value = '';
+    });
+}
+mostrarResultados();
