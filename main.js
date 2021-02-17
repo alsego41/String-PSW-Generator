@@ -114,6 +114,9 @@ function mostrarResultados(){
     botonAleatorio.addEventListener('click', () => {
         resultDiv.classList.remove('visually-hidden');
         inputResult.value = '';
+        let opcUser = leerOpcionesUsuario();
+
+        generarCadenaAleatoria(opcUser);
     });
     botonEspecifico.addEventListener('click', () => {
         resultDiv.classList.remove('visually-hidden');
@@ -121,3 +124,108 @@ function mostrarResultados(){
     });
 }
 mostrarResultados();
+
+function generarCadenaAleatoria(opcUsr){
+    let cadena = agregarCarac(opcUsr);
+    cadena = shufflearCadena(cadena);
+    
+    console.log(cadena);
+}
+
+function agregarCarac(opcUsr){
+    let cadena = [];
+    switch (opcUsr[1]) {
+        case 'ambas':
+            for (let i= 65; i <= 90; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            for (let i= 97; i <= 122; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            break;
+        case 'solo-min':
+            for (let i= 97; i <= 122; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            break;
+        case 'solo-may':
+            for (let i= 65; i <= 90; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            break;
+        default:
+            break;
+    }
+    switch (opcUsr[2]) {
+        case true:
+            for (let i= 48; i <= 57; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            break;
+        case false:
+            break;
+        default:
+            break;
+    }
+    switch (opcUsr[3]) {
+        case 'all-car-esp':
+            for (let i= 33; i <= 47; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            for (let i= 58; i <= 64; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            for (let i= 91; i <= 96; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            for (let i= 123; i <= 126; i++){
+                cadena.push(String.fromCharCode(i));
+            }
+            break;
+        case 'some-car-esp':
+            cadena.push(String.fromCharCode(42));
+            cadena.push(String.fromCharCode(43));
+            cadena.push(String.fromCharCode(45));
+            cadena.push(String.fromCharCode(47));
+            break;
+        default:
+            let newCad = opcUsr[3].split('');
+            for (let i = 0; i < newCad.length; i++){
+                if (newCad[i] !== ' '){
+                    cadena.push(newCad[i]);
+                }
+            }
+            break;
+    }
+    return cadena;
+}
+
+function shufflearCadena(cadena){
+    // fisher-yates shuffle
+}
+
+function leerOpcionesUsuario(){
+    let longitud = document.querySelector('#opc-long').value;
+    let hasLetras = document.querySelector('#letras-check').checked;
+    let hasNumeros = document.querySelector('#num-check').checked;
+    let hasEspChar = document.querySelector('#charesp-check').checked;
+    if (hasLetras){
+        let valorLetras = document.querySelector('#options-letras').value;
+        hasLetras = valorLetras;
+    }
+    if (hasEspChar){
+        let valorChar = document.querySelector('#options-charesp').value;
+        if (valorChar === 'custom-car-esp'){
+            let charEspecifico = document.querySelector('#char-especif-aleat').value;
+            hasEspChar = charEspecifico;
+        } else {
+            hasEspChar = valorChar;
+        }
+    }
+    let opcionesUser = [longitud, hasLetras, hasNumeros, hasEspChar];
+    return opcionesUser;
+}
+
+function extraerEspecChar(string){
+
+}
