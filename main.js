@@ -104,3 +104,20 @@ function cambioDePatron(id){
         custom.classList.add('visually-hidden');
     }
 }
+
+function mostrarResultados(){
+    let botonAleatorio = document.querySelector('#boton-aleatorio');
+    let botonEspecifico = document.querySelector('#boton-especifico');
+    let resultDiv = document.querySelector('#result-row');
+    let inputResult = resultDiv.querySelector('#input-result');
+
+    botonAleatorio.addEventListener('click', () => {
+        resultDiv.classList.remove('visually-hidden');
+        inputResult.value = '';
+    });
+    botonEspecifico.addEventListener('click', () => {
+        resultDiv.classList.remove('visually-hidden');
+        inputResult.value = '';
+    });
+}
+mostrarResultados();
