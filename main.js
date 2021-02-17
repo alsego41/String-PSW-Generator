@@ -68,3 +68,39 @@ function manejarVisibilidadConfigs(objetoActual,objetoYaActivo){
 }
 
 activarCustomization();
+
+function seleccionTipoPatron(){
+    let radio = document.querySelectorAll('input[name="patron"]');
+    
+    radio.forEach((tipo) => {
+        tipo.addEventListener('change', () => {
+            let tipoSeleccionado = document.querySelector('input[name="patron"]:checked');
+            let id = tipoSeleccionado.getAttribute('id');
+            cambioDePatron(id);
+        });
+    });
+}
+seleccionTipoPatron()
+
+function cambioDePatron(id){
+    let secEspPat = document.querySelector('#patron-espec');
+    let resultados = document.querySelector('#result-row');
+
+    let opciones = document.querySelector('#opc-selec');
+    let genCadena = document.querySelector('#gen-cadena-top-hint');
+    let custom = document.querySelector('#custom-row');
+    if (id === 'pat-aleatorio'){
+        secEspPat.classList.add('visually-hidden');
+        resultados.classList.add('visually-hidden');
+        opciones.classList.remove('visually-hidden');
+        genCadena.classList.remove('visually-hidden');
+        custom.classList.remove('visually-hidden');
+    }
+    else if (id === 'pat-especifico'){
+        secEspPat.classList.remove('visually-hidden');
+        resultados.classList.add('visually-hidden');
+        opciones.classList.add('visually-hidden');
+        genCadena.classList.add('visually-hidden');
+        custom.classList.add('visually-hidden');
+    }
+}
