@@ -31,8 +31,6 @@ function activarCollapseCharEspOpciones(){
     });
 }
 
-activarCollapseCharEspOpciones();
-
 function activarCustomization(){
     let letrasOpc = document.querySelector('#letras-check');
     let letrasConf = document.querySelector('#letras-custom');
@@ -67,8 +65,6 @@ function manejarVisibilidadConfigs(objetoActual,objetoYaActivo){
     }
 }
 
-activarCustomization();
-
 function seleccionTipoPatron(){
     let radio = document.querySelectorAll('input[name="patron"]');
     
@@ -80,7 +76,6 @@ function seleccionTipoPatron(){
         });
     });
 }
-seleccionTipoPatron()
 
 function cambioDePatron(id){
     let secEspPat = document.querySelector('#patron-espec');
@@ -121,9 +116,11 @@ function mostrarResultados(){
     botonEspecifico.addEventListener('click', () => {
         resultDiv.classList.remove('visually-hidden');
         inputResult.value = '';
+        let patron = manejarInputEspec();
+        let cadenaGenerada = generarCadenaEspec(patron);
+        inputResult.value = cadenaGenerada.join('');
     });
 }
-mostrarResultados();
 
 function generarCadenaAleatoria(opcUsr){
     let cadena = agregarCarac(opcUsr);
@@ -236,3 +233,86 @@ function leerOpcionesUsuario(){
     let opcionesUser = [longitud, hasLetras, hasNumeros, hasEspChar];
     return opcionesUser;
 }
+
+activarCollapseCharEspOpciones();
+activarCustomization();
+seleccionTipoPatron();
+mostrarResultados();
+
+function generarCadenaEspec(patron){
+    let hasEspChar = document.querySelector('#pat-charesp-check').checked;
+    let charEspec = [];
+    if (hasEspChar){
+        let inputCharEsp = document.querySelector('#input-charesp-pat-espec').value;
+        let newCad = inputCharEsp.split('');
+        for (let i = 0; i < newCad.length; i++){
+            if (newCad[i] !== ' '){
+                charEspec.push(newCad[i]);
+            }
+        }
+    }
+    let cadenaEspec = [];
+    let mayus = [];
+    for (let i= 65; i <= 90; i++){
+        mayus.push(String.fromCharCode(i));
+    }
+    let minus = [];
+    for (let i= 97; i <= 122; i++){
+        minus.push(String.fromCharCode(i));
+    }
+    let nums = [];
+    for (let i= 48; i <= 57; i++){
+        nums.push(String.fromCharCode(i));
+    }
+    let allEspChar = [];
+    for (let i= 33; i <= 47; i++){
+        allEspChar.push(String.fromCharCode(i));
+    }
+    for (let i= 58; i <= 64; i++){
+        allEspChar.push(String.fromCharCode(i));
+    }
+    for (let i= 91; i <= 96; i++){
+        allEspChar.push(String.fromCharCode(i));
+    }
+    for (let i= 123; i <= 126; i++){
+        allEspChar.push(String.fromCharCode(i));
+    }
+    
+    for (let i = 0; i < patron.length ; i++){
+        switch (patron[i]){
+            case 'A':
+                cadenaEspec.push(shufflearCadena(mayus)[0]);
+                break;
+            case 'a':
+                cadenaEspec.push(shufflearCadena(minus)[0]);
+                break;
+            case '1':
+                cadenaEspec.push(shufflearCadena(nums)[0]);
+                break;
+            case '+':
+                if (hasEspChar){
+                    cadenaEspec.push(shufflearCadena(charEspec)[0]);
+                }
+                else {
+                    cadenaEspec.push(shufflearCadena(allEspChar)[0]);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    return cadenaEspec;
+}
+
+function manejarInputEspec(){
+    let inputPatron = document.querySelector('#ingr-pat-espec').value;
+    let arrayPatron = inputPatron.split('');
+    let patronLimpio = [];
+    for (let i = 0; i < arrayPatron.length; i++){
+        if (arrayPatron[i].match(/[Aa1+]/)){
+            patronLimpio.push(arrayPatron[i]);
+        }
+    }   
+    return patronLimpio;
+}
+
