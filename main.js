@@ -115,8 +115,8 @@ function mostrarResultados(){
         resultDiv.classList.remove('visually-hidden');
         inputResult.value = '';
         let opcUser = leerOpcionesUsuario();
-
-        generarCadenaAleatoria(opcUser);
+        let cadenaGenerada = generarCadenaAleatoria(opcUser);
+        inputResult.value = cadenaGenerada.join('');
     });
     botonEspecifico.addEventListener('click', () => {
         resultDiv.classList.remove('visually-hidden');
@@ -127,9 +127,14 @@ mostrarResultados();
 
 function generarCadenaAleatoria(opcUsr){
     let cadena = agregarCarac(opcUsr);
-    cadena = shufflearCadena(cadena);
-    
-    console.log(cadena);
+    let cadenaAleatoria = [];
+    let nroRandom;
+    for (let i = 0; i < opcUsr[0]; i++) {
+        shufflearCadena(cadena);
+        nroRandom = Number(Math.floor(Math.random() * cadena.length));
+        cadenaAleatoria.push(cadena[nroRandom]);
+    }
+    return cadenaAleatoria;
 }
 
 function agregarCarac(opcUsr){
@@ -188,6 +193,8 @@ function agregarCarac(opcUsr){
             cadena.push(String.fromCharCode(45));
             cadena.push(String.fromCharCode(47));
             break;
+        case false:
+            break;
         default:
             let newCad = opcUsr[3].split('');
             for (let i = 0; i < newCad.length; i++){
@@ -200,8 +207,12 @@ function agregarCarac(opcUsr){
     return cadena;
 }
 
-function shufflearCadena(cadena){
-    // fisher-yates shuffle
+function shufflearCadena(array){
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 function leerOpcionesUsuario(){
@@ -224,8 +235,4 @@ function leerOpcionesUsuario(){
     }
     let opcionesUser = [longitud, hasLetras, hasNumeros, hasEspChar];
     return opcionesUser;
-}
-
-function extraerEspecChar(string){
-
 }
