@@ -316,3 +316,39 @@ function manejarInputEspec(){
     return patronLimpio;
 }
 
+function copyClipboard(){
+    let copyBtn = document.querySelector('#copy-clip');
+    copyBtn.addEventListener('click',()=>{
+        let input = document.querySelector('#input-result');
+        navigator.clipboard.writeText(input.value)
+        let div = document.createElement('div');
+        setTimeout(()=>{
+            div.textContent = 'Copiado!';
+            div.setAttribute('id','div-tooltip');
+            div.classList.remove('fs-1');
+            div.classList.add('fs-6');
+            copyBtn.append(div);
+        },100);
+        setTimeout(()=>{
+            div.remove();
+        },1500);
+    });
+}
+
+copyClipboard();
+
+function refrescarCadena(){
+    let relBtn = document.querySelector('#reload-btn');
+    relBtn.addEventListener('click',() => {
+        let tipoSeleccionado = document.querySelector('input[name="patron"]:checked');
+        if (tipoSeleccionado.getAttribute('id') === 'pat-aleatorio'){
+            let botonAleatorio = document.querySelector('#boton-aleatorio');
+            botonAleatorio.click();
+        }else {
+            let botonEspecifico = document.querySelector('#boton-especifico');
+            botonEspecifico.click();
+        }
+    });
+}
+
+refrescarCadena();
