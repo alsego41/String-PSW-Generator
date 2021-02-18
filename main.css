@@ -2,3 +2,8 @@
     height: auto;
     min-height: 100px;
 }
+
+#input-result {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+}
