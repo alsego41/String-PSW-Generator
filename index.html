@@ -96,7 +96,7 @@
                 <div class="container col-sm-12 col-lg-6 ">
                     <p class="ps-2 my-2">Especificar patrón:</p>
                     <div class="input-group input-group-sm px-2">
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="AA11aaaa+AA">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="AA11aaaa+AA" id="ingr-pat-espec">
                     </div>
                     <div class="form-check ms-2 mt-3 fs-6">
                         <input class="form-check-input collapsed" type="checkbox" value="" id="pat-charesp-check" data-bs-toggle="collapse" data-bs-target="#pat-charesp-input">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="input-group input-group-sm mb-0 mt-1 px-2 collapse" id="pat-charesp-input">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Especificar:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="input-charesp-pat-espec">
                     </div>
                     <button type="button" class="btn btn-dark my-3 ms-2" id="boton-especifico">Generar cadena</button>
                 </div>
@@ -136,19 +136,7 @@
                     <option value="solo-may">Solo mayusculas</option>
                 </select>
             </div>
-            <!-- Numeros -->
-            <!-- 
-
-                <div class="container col-sm-12 col-lg-4 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow" id="nums-custom">
-                    <p class="mt-2">Números:</p>
-                    <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example">
-                        <option selected>Seleccione...</option>
-                        <option value="con-num">Con números</option>
-                        <option value="sin-num">Sin números</option>
-                    </select>
-                </div>
-            -->
-            <!-- Carac. esp. -->
+            <!-- Chars -->
             <div class="container col-sm-12 col-lg-6 box bg-secondary text-white rounded mb-lg-3 mb-sm-1 fs-5 border border-2 shadow visually-hidden" id="char-custom">
                 <p class="mt-2">Carácteres especiales:</p>
                 <select class="form-select form-select-sm my-3" aria-label=".form-select-sm example" id="options-charesp">
