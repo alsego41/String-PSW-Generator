@@ -17,3 +17,21 @@
     padding: 5px 10px;
     /* border-radius: 5px; */
 }
+
+i {
+    margin-right: 7px;
+}
+
+p.nav-link {
+    color: white;
+    margin: 0;
+}
+
+a.nav-link {
+    color: white;
+}
+
+a.nav-link:hover {
+    color: black;
+    transition: 1s;
+}
