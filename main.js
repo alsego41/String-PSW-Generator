@@ -323,10 +323,10 @@ function copyClipboard(){
         navigator.clipboard.writeText(input.value)
         let div = document.createElement('div');
         setTimeout(()=>{
-            div.textContent = 'Copiado!';
-            div.setAttribute('id','div-tooltip');
             div.classList.remove('fs-1');
-            div.classList.add('fs-6');
+            div.textContent = 'Copiado!';
+            div.classList.add('fs-6','bg-secondary','text-white', 'rounded','border','border-2','shadow','container','w-auto');
+            div.setAttribute('id','div-tooltip');
             copyBtn.append(div);
         },100);
         setTimeout(()=>{
