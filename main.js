@@ -352,3 +352,74 @@ function refrescarCadena(){
 }
 
 refrescarCadena();
+
+function cambiarTema(){
+    let btnSwitch = document.querySelector('#theme-switch');
+    let temaGuardado = localStorage.getItem('theme');
+    if (temaGuardado !== null){
+        aplicarTema(temaGuardado);
+    } else {
+        aplicarTema('white');
+    }
+    btnSwitch.addEventListener('click',()=>{
+        let temaGuardado = localStorage.getItem('theme');
+        if (temaGuardado === 'white'){
+            aplicarTema('dark');
+        } else{
+            aplicarTema('white');
+        }
+    });
+}
+
+cambiarTema();
+
+function aplicarTema(temaGuardado){
+    let anterior;
+    if (temaGuardado === 'white'){
+        anterior = 'dark'
+    } else{
+        anterior = 'white';
+    }
+    document.body.classList.add('bg-' + temaGuardado);
+    document.body.classList.remove('bg-' + anterior);
+    localStorage.setItem('theme',temaGuardado);
+    
+    let elemConBordes = document.querySelectorAll('.border');
+    let checks = document.querySelectorAll('.form-check-input');
+    let inputs = document.querySelectorAll('.form-control');
+    let selects = document.querySelectorAll('.form-select');
+    let labelInput = document.querySelectorAll('.input-group-text');
+
+    cambiarTemaNormal(elemConBordes,anterior,temaGuardado,'border');
+    cambiarTemaNormal(checks,anterior,temaGuardado,'bg');
+    cambiarTemaNormal(inputs,anterior,temaGuardado,'bg');
+    cambiarTemaNormal(selects,anterior,temaGuardado,'bg');
+    cambiarTemaNormal(labelInput,anterior,temaGuardado,'bg');
+    cambiarTemaInverso(inputs,anterior,temaGuardado,'text');
+    cambiarTemaInverso(selects,anterior,temaGuardado,'text');
+    cambiarTemaInverso(labelInput,anterior,temaGuardado,'text');
+}
+
+function cambiarTemaNormal(elementos,anterior,temaGuardado,tipo){
+    if (anterior === 'dark'){
+        elementos.forEach((elem) => {
+            elem.classList.remove(tipo + '-' + anterior);
+        });
+    } else {
+        elementos.forEach((elem) => {
+            elem.classList.add(tipo + '-' + temaGuardado);
+        });
+    }
+}
+
+function cambiarTemaInverso(elementos,anterior,temaGuardado,tipo){
+    if (anterior === 'dark'){
+        elementos.forEach((elem) => {
+            elem.classList.remove(tipo + '-' + temaGuardado);
+        });
+    } else {
+        elementos.forEach((elem) => {
+            elem.classList.add(tipo + '-' + anterior);
+        });
+    }
+}

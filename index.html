@@ -12,22 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container-lg">
+    <div class="container-lg" id="container-all">
         <!-- Nav bar -->
         <div class="container row m-auto">
-            <nav class="navbar navbar-expand-lg navbar-light shadow rounded mb-lg-5 mb-sm-3 mb-3" style="background-color: #c4c4c4;">
+            <nav class="navbar navbar-expand-lg navbar-light shadow rounded mb-lg-5 mb-sm-3 mb-3 bg-secondary">
                 <div class="container-fluid">
-                <a class="navbar-brand" href="#">STR-PSW-GENERATOR</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/alsego41/String-PSW-Generator" target="_blank">Source</a>
-                    </li>
-                    </ul>
-                </div>
+                    <a class="navbar-brand text-white fs-5" href="#">STR-PSW-GENERATOR</a>
+                    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="https://github.com/alsego41/String-PSW-Generator" target="_blank">Source</a>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link text-white" id="theme-switch">Cambiar tema  <i class="bi bi-circle-half"></i></p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -156,7 +159,7 @@
         </div>
 
         <!-- Resultados row -->
-        <div class="container row visually-hidden m-auto" id="result-row">
+        <div class="container row visually-hidden mx-auto mb-5" id="result-row">
             <div class="container bg-secondary text-white rounded border border-2 shadow">
                 <p class="mt-2 ms-3 fs-4">Cadena generada:</p>
                 <div class="container px-3 mb-3">
@@ -181,7 +184,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="container-lg container-sm row w-auto m-auto">
+        <footer class="container-lg container-sm row w-auto mx-auto mt-5">
             <!-- Contact -->
             <div class="col-lg-4 col-sm-12 bg-secondary border border-2 shadow rounded py-3 pt-2">
                 <nav class="nav flex-column">
@@ -257,7 +260,7 @@
                 <p class="text-center text-white m-3">Alberto González @ All Rights Reserved 2021</p>
             </div>
         </footer>
-
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>

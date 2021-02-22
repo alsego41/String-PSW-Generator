@@ -2,4 +2,4 @@
  Generador de strings y contraseñas
 
 Proximos cambios:
-
+-
