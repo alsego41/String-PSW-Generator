@@ -39,3 +39,7 @@ a.nav-link:hover {
 .footer{
     margin-bottom: 0;
 }
+
+#navbarNav ul li p {
+    cursor: pointer;
+}

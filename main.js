@@ -352,3 +352,46 @@ function refrescarCadena(){
 }
 
 refrescarCadena();
+
+function cambiarTema(){
+    let btnSwitch = document.querySelector('#theme-switch');
+    let temaGuardado = localStorage.getItem('theme');
+    if (temaGuardado !== null){
+        aplicarTema(temaGuardado);
+    } else {
+        aplicarTema('white');
+    }
+    btnSwitch.addEventListener('click',()=>{
+        let temaGuardado = localStorage.getItem('theme');
+        if (temaGuardado === 'white'){
+            aplicarTema('dark');
+        } else{
+            aplicarTema('white');
+        }
+    });
+}
+
+cambiarTema();
+
+function aplicarTema(temaGuardado){
+    let anterior;
+    if (temaGuardado === 'white'){
+        anterior = 'dark'
+    } else{
+        anterior = 'white';
+    }
+    document.body.classList.add('bg-' + temaGuardado);
+    document.body.classList.remove('bg-' + anterior);
+    localStorage.setItem('theme',temaGuardado);
+    let elemConBordes = document.querySelectorAll('.border');
+    if (anterior === 'dark'){
+        for (let i = 0; i < elemConBordes.length; i++){
+            elemConBordes[i].classList.remove('border-' + anterior);
+        }
+    }
+    else {
+        for (let i = 0; i < elemConBordes.length; i++){
+            elemConBordes[i].classList.add('border-' + temaGuardado);
+        }
+    }
+}
